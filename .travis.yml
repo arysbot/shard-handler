@@ -22,6 +22,6 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker pull arysbot/boilerplace:dev
-  - docker build -t arysbot/boilerplace:dev .
-  - docker push arysbot/boilerplace:dev
+  - docker pull arysbot/shard-orchestrator:dev
+  - docker build -t arysbot/shard-orchestrator:dev .
+  - docker push arysbot/shard-orchestrator:dev
