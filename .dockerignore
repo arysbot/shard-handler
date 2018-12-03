@@ -1,0 +1,6 @@
+doc
+node_modules
+Dockerfile
+LICENSE
+README.md
+.*
