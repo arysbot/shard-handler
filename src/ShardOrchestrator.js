@@ -4,18 +4,19 @@ const Logger = require("@arys/logger");
 const snekfetch = require("snekfetch");
 const _uuid = require("uuid/v1");
 
-process.env.DISCORD_TOKEN = "MzA2NTIzMjM2Mjg2NDY0MDEx.Dua3pw.bMq3IoXmUThfvNEu3wJtA-LtHjk";
-
 class ShardOrchestrator {
     constructor() {
         (async () => {
             this.grpcClient = new GrpcClient();
             this.logger = new Logger({ service: "shard-orchestrator" });
-            this.kubernetes = {};
-            this.kubernetes.config = require('kubernetes-client').config;
-            this.kubernetes.client = new KubernetesClient({ config: this.kubernetes.config.getInCluster() });
-            await client.loadSpec()
+            await this.identify();
         })();
+    }
+    async startKubernetes() {
+        this.kubernetes = {};
+        this.kubernetes.config = require('kubernetes-client').config;
+        this.kubernetes.client = new KubernetesClient({ config: this.kubernetes.config.getInCluster() });
+        await client.loadSpec()
     }
     async identify() {
         const shards = await this.getShards();
