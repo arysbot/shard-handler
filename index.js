@@ -1,3 +1,7 @@
 const ShardOrchestrator = require("./src/ShardOrchestrator");
 
-new ShardOrchestrator();
+const orchestrator = new ShardOrchestrator();
+
+const foo = {};
+
+foo.orchestrator = orchestrator;
