@@ -1,4 +1,9 @@
 {
+  "ShardOrchestrator": {
+    "name": "shardOrchestrator",
+    "serviceName": "shard-orchestrator",
+    "config": {}
+  },
   "Database": {
     "name": "database",
     "serviceName": "database",
