@@ -1,4 +1,4 @@
-const ShardOrchestrator = require("./src/ShardOrchestrator");
+const ShardOrchestrator = require("./src/oldStuff/ShardOrchestrator");
 // check the env variables
 const requiredEnv = require("@arys/required-env");
 

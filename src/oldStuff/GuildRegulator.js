@@ -5,7 +5,8 @@ class GuildRegulator {
         this.lastGuildRefresh = Date.now();
         this.TIME_BETWEEN_GUILDCOUNT = parseInt(process.env.TIME_BETWEEN_GUILDCOUNT);
         setTimeout(() => {
-            this.lastGuildRefresh += this.TIME_BETWEEN_GUILDCOUNT;
+
+            this.lastGuildRefresh = Date.now();
         }, this.TIME_BETWEEN_GUILDCOUNT);
         this.shardMap = new Map();
     }
