@@ -5,7 +5,7 @@ const Logger = require("@arys/logger");
 const snekfetch = require("snekfetch");
 const _uuid = require("uuid/v1");
 const k8s = require("@kubernetes/client-node");
-const GuildRegulator = require("GuildRegulator");
+const GuildRegulator = require("./GuildRegulator");
 
 class ShardOrchestrator {
     constructor() {
@@ -16,6 +16,8 @@ class ShardOrchestrator {
         }
     }
     async init() {
+        // start the logger
+        this.logger = new Logger({ service: "shard-orchestrator" });
         // get number of recommended shards and check that we get a coherent value
         this.shards = await this.getShards();
         if(isNaN(this.shards) || typeof this.shards !== "number" || this.shards === 0) {
@@ -39,8 +41,6 @@ class ShardOrchestrator {
             Identify: this.identifyClient,
             UpdateGuildAmount: this.updateGuildAmount
         });
-        // start the logger
-        this.logger = new Logger({ service: "shard-orchestrator" });
         // system to check if we need to reboot with more shards
         this.guildRegulator = new GuildRegulator();
     }

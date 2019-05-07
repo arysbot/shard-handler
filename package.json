@@ -6,16 +6,16 @@
   "dependencies": {
     "@arys/grpc-client": "^1.0.3",
     "@arys/grpc-url": "^1.0.6",
-    "@arys/logger": "^1.1.0",
+    "@arys/logger": "^1.1.2",
     "@arys/protofiles": "^1.0.5",
     "@arys/required-env": "^1.0.2",
-    "@kubernetes/client-node": "^0.7.2",
+    "@kubernetes/client-node": "^0.8.2",
     "discord.js": "^11.4.2",
     "snekfetch": "^4.0.4",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "eslint": "^5.12.0"
+    "eslint": "^5.16.0"
   },
   "scripts": {
     "start": "node ."
