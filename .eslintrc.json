@@ -76,7 +76,7 @@
 		"consistent-this": "error",
 		"eol-last": "error",
 		"func-style": ["error", "declaration", { "allowArrowFunctions": true }],
-		"id-length": ["error", { "exceptions": ["i", "j", "a", "b", "t", "r", "d"] }],
+		"id-length": ["error", { "exceptions": ["i", "j", "a", "b", "t", "r", "d", "e"] }],
 		"indent": ["error", 4, {
 			"SwitchCase": 1
 		}],
