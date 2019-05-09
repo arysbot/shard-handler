@@ -17,9 +17,6 @@ env:
 install:
  - npm install
 
-script:
- - eslint . --quiet
-
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker pull arysbot/shard-orchestrator:dev
