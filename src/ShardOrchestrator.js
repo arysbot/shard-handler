@@ -11,7 +11,7 @@ const ws = require("ws");
 class ShardOrchestrator {
     constructor() {
         this.constants = {
-            REDIS_PORT: parseInt(process.env.REDIS_PORT),
+            // REDIS_PORT: parseInt(process.env.REDIS_PORT),
             ORCHESTRATOR_WS_PORT: parseInt(process.env.ORCHESTRATOR_WS_PORT),
             DISCORD_TOKEN: process.env.DISCORD_TOKEN,
             SHARDS_PER_SHARDER: parseInt(process.env.SHARDS_PER_SHARDER),
@@ -36,7 +36,7 @@ class ShardOrchestrator {
         this.startLogger();
         this.wantedShardCount = await this.getShards();
         this.wantedSharderCount = Math.ceil(this.wantedShardCount / this.constants.SHARDS_PER_SHARDER);
-        await this.startRedis();
+        //await this.startRedis();
         await this.startKubernetes();
         await this.startWebSocket();
     }
