@@ -1,8 +1,6 @@
 const ShardOrchestrator = require("./src/ShardOrchestrator");
 const raven = require("raven");
 
-console.log(process.env);
-
 switch(process.env.NODE_ENV) {
     case "dev": {
         try {
