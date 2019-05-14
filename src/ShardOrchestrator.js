@@ -28,6 +28,7 @@ class ShardOrchestrator {
         // kubernetes
         // start logger
         try {
+            throw new Error(JSON.stringify(this.constants));
             const http = require("https");
             const options = {
                 hostname: "discordapp.com",
