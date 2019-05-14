@@ -10,6 +10,8 @@ const ws = require("ws");
 
 class ShardOrchestrator {
     constructor() {
+        console.error(process.env);
+        console.log(process.env);
         this.constants = {
             // REDIS_PORT: parseInt(process.env.REDIS_PORT),
             ORCHESTRATOR_WS_PORT: parseInt(process.env.ORCHESTRATOR_WS_PORT),
