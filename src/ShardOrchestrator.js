@@ -10,12 +10,10 @@ const ws = require("ws");
 
 class ShardOrchestrator {
     constructor() {
-        console.error(process.env);
-        console.log(process.env);
         this.constants = {
             // REDIS_PORT: parseInt(process.env.REDIS_PORT),
             ORCHESTRATOR_WS_PORT: parseInt(process.env.ORCHESTRATOR_WS_PORT),
-            DISCORD_TOKEN: process.env.DISCORD_TOKEN,
+            DISCORD_TOKEN: process.env.DISCORD_TOKEN.replace("\n", ""),
             SHARDS_PER_SHARDER: parseInt(process.env.SHARDS_PER_SHARDER),
             TIME_BETWEEN_SHARD_COUNT: parseInt(process.env.TIME_BETWEEN_SHARD_COUNT),
             SCALING_FACTOR: parseInt(process.env.SCALING_FACTOR),
@@ -28,10 +26,7 @@ class ShardOrchestrator {
         // kubernetes
         // start logger
         try {
-            console.log(this.constants);
-            console.log(process.env);
-            console.error(process.env);
-            //this.init();
+            this.init();
         } catch(e) {
             throw e;
         }
