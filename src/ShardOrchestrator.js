@@ -28,26 +28,9 @@ class ShardOrchestrator {
         // kubernetes
         // start logger
         try {
-            throw new Error(JSON.stringify(this.constants));
-            const http = require("https");
-            const options = {
-                hostname: "discordapp.com",
-                port: 443,
-                path: "/api/v7/gateway/bot",
-                method: "GET",
-                headers: {
-                    "Authorization": `Bot ${this.constants.DISCORD_TOKEN}`
-                }
-            };
-            const req = http.request(options, (res) => {
-                res.on('data', (d) => {
-                    console.log(JSON.parse(d.toString()).shards);
-                });
-                res.on('error', (err) => {
-                    console.error(err);
-                });
-            });
-            req.end();
+            console.log(this.constants);
+            console.log(process.env);
+            console.error(process.env);
             //this.init();
         } catch(e) {
             throw e;
