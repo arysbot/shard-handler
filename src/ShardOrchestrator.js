@@ -47,19 +47,14 @@ class ShardOrchestrator {
             snekfetch.get(`https://discordapp.com/api/v7/gateway/bot`)
                 .set("Authorization", `Bot ${this.constants.DISCORD_TOKEN}`)
                 .end(async (err, res) => {
-                    console.error(err);
                     const endTimestamp = Date.now();
                     const latency = endTimestamp - timestamp;
                     if(err) {
-                        await this.logger.logRequest("DiscordAPI#getShards",
-                            uuidGenerator(),
-                            err.body.message,
-                            latency);
-                        process.exit(1);
+                        throw new Error(`Could not get shards from discord: ${err.body}`);
                     } else {
                         this.logger.logRequest("DiscordAPI#getShards", uuidGenerator(),
                             `${res.statusCode} ${res.statusText}`, latency);
-                        resolve(parseInt(res.body.shards));
+                        resolve(res.body.shards);
                     }
                 });
         });
