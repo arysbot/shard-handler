@@ -17,8 +17,3 @@ env:
 install:
  - npm install
 
-after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker pull arysbot/shard-orchestrator:dev
-  - docker build -t arysbot/shard-orchestrator:dev .
-  - docker push arysbot/shard-orchestrator:dev
